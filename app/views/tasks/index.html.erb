@@ -1,0 +1,11 @@
+<div class="container m-3">
+    <div class="row d-block">
+        <h1>Tasks</h1>
+        <ul class="border-bottom px-3 pb-3">
+        <% @tasks.each do |task| %>
+            <li><%= task.completed ? icon('far', 'check-square') : icon('far', 'square') %>    <%= link_to task.title, task_path(task.id) %>   <%= link_to icon('far', 'trash-alt'), task_path(task), method: :delete, data: { confirm: "Are you certain?" } %></li>
+        <% end %>
+        </ul>
+    </div>
+    <%=  icon('fas', 'plus') %><%=  link_to 'Add new task', new_task_path %>
+</div>
